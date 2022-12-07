@@ -1,2 +1,4 @@
-public class DogFactory {
+
+public class DogFactory implements DogFactoryIF{
+
 }
