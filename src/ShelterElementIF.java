@@ -1,2 +1,2 @@
-public interface ShelterElementIF {
+public interface ShelterElementIF extends ShelterElementIF2 {
 }
