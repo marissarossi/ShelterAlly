@@ -1,0 +1,2 @@
+public interface ShelterElementIF2 {
+}
