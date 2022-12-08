@@ -1,8 +1,8 @@
-package resources;
-
 import javax.swing.*;
+import java.awt.*;
 
-public class ApplicationEntry {
+public class ApplicationEntry extends JFrame{
+    public JPanel MainJPanel;
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
@@ -20,7 +20,7 @@ public class ApplicationEntry {
     private JRadioButton largeRadioButton1;
     private JRadioButton yesRadioButton3;
     private JRadioButton noRadioButton3;
-    private JPanel MainJPanel;
+    //private JPanel MainJPanel;
     private JPanel OutermostJpanel;
     private JPanel BodyJPanel;
     private JPanel QuestionsJPanel;
