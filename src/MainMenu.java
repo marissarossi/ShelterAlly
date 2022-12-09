@@ -6,9 +6,10 @@ import java.awt.event.ActionListener;
 public class MainMenu extends JFrame{
     private JButton newApplicationEntryButton;
     private JButton viewSheltersButton;
-    private JButton currentDogsButton;
+    private JButton viewCurrentDogsButton;
     private JPanel mmPanel;
     private JPanel MainJPanel;
+    private JPanel DogJPanel;
 
     public MainMenu() {
         newApplicationEntryButton.addActionListener(new ActionListener() {
@@ -19,6 +20,16 @@ public class MainMenu extends JFrame{
                 ae.setSize(400,400);
                 ae.setTitle("Shelter Ally");
                 ae.setVisible(true);
+            }
+        });
+        viewCurrentDogsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewDogsMenu vdm = new ViewDogsMenu();
+                vdm.setContentPane(vdm.DogJPanel);
+                vdm.setSize(800,600);
+                vdm.setTitle("Shelter Ally");
+                vdm.setVisible(true);
             }
         });
     }
