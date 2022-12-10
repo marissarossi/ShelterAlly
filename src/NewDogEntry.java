@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class NewDogEntry extends JFrame{
-
     JPanel titlePanel;
     JPanel midPanel;
     JTextField textField1;
@@ -28,7 +27,6 @@ public class NewDogEntry extends JFrame{
     JButton submitButton;
     ButtonGroup buttonGroup1, buttonGroup2, buttonGroup3;
 
-
     String name;
     String breed;
     String size;
@@ -38,9 +36,6 @@ public class NewDogEntry extends JFrame{
     String energyLevel;
     boolean needsYard;
     String temperament;
-
-    DefaultTableModel model = ViewDogsMenu.getModel();
-
 
 
     public NewDogEntry() {
@@ -56,6 +51,7 @@ public class NewDogEntry extends JFrame{
         shyRadioButton.setActionCommand("shy");
         averageEasyGoingRadioButton.setActionCommand("regular");
         aggressiveRadioButton.setActionCommand("aggressive");
+
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -81,7 +77,7 @@ public class NewDogEntry extends JFrame{
                 dog.setNeedsYard(needsYard);
 
                 // to keep Added Dogs in the list in "Current Dogs", keep the window open
-                model.addRow(new Object[]{name, breed, size, kidsOK, otherDogsOK, catsOK, energyLevel, needsYard, temperament});
+                ViewDogsMenu.getModel().addRow(new Object[]{name, breed, size, kidsOK, otherDogsOK, catsOK, energyLevel, needsYard, temperament});
             }
         });
     }

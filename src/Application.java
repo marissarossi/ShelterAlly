@@ -34,8 +34,8 @@ public class Application {
     public void setHasCats(boolean hasCats){ this.hasCats = hasCats;}
     public String getEnergyLevel(){ return energyLevel;    }
     public void setEnergyLevel(String energyLevel){ this.energyLevel = energyLevel;    }
-    public boolean setHasYard(){
+    public boolean getHasYard(){
         return hasYard;
     }
-    public void getHasYard(boolean hasYard){this.hasYard = hasYard;    }
+    public void setHasYard(boolean hasYard){this.hasYard = hasYard;    }
 }

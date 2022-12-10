@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 public class ViewDogsMenu extends JFrame{
     private static DefaultTableModel model;
-    JTable table1;
     JPanel DogJPanel;
-    private JButton addNewDogButton;
+    JButton addNewDog;
+    JTable table1;
 
 
     ViewDogsMenu(){
@@ -24,7 +24,8 @@ public class ViewDogsMenu extends JFrame{
         model.addColumn("Needs Yard?");
         model.addColumn("Temperament");
         table1.setModel(model);
-        addNewDogButton.addActionListener(new ActionListener() {
+
+        addNewDog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // NewDogEntry JPanel
@@ -35,14 +36,12 @@ public class ViewDogsMenu extends JFrame{
                 nd.setVisible(true);
             }
         });
-    }
 
+    }
     public static DefaultTableModel getModel() {
         return model;
     }
-
     public void AddRowToTable(Object[] row){
         model.addRow(row);
     }
-
 }
