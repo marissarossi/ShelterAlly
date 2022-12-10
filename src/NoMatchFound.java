@@ -7,6 +7,7 @@ public class NoMatchFound extends JFrame{
     JPanel panel1;
     JTextField sorryNoMatchFoundTextField;
     JButton OKButton;
+    JTextField textField1;
 
     public NoMatchFound() {
         OKButton.addMouseListener(new MouseAdapter() {

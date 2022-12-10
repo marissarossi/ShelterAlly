@@ -53,7 +53,7 @@ public class PendingApplications extends JFrame{
                     br = new BufferedReader(new FileReader(file));
                     Object[] tableLines = br.lines().toArray();
 
-                    for (int i = 0; i< tableLines.length; i++){
+                    for (int i = 1; i< 2; i++){
                         String line = tableLines[i].toString().trim();
                         String[] appDataRow = line.split(", ");
                         app.setAll(app, appDataRow);
@@ -80,7 +80,7 @@ public class PendingApplications extends JFrame{
                     if (matchFound){
                         MatchFinder mf = new MatchFinder();
                         mf.setContentPane(mf.MatchFoundJPanel);
-                        mf.setSize(200,200);
+                        mf.setSize(300,200);
                         mf.setVisible(true);
                         mf.textField1.setText(dog.getName());
                     }
@@ -88,7 +88,8 @@ public class PendingApplications extends JFrame{
 
                         NoMatchFound noMatch = new NoMatchFound();
                         noMatch.setContentPane(noMatch.panel1);
-                        noMatch.setSize(200, 100);
+                        noMatch.setSize(200, 150);
+                        noMatch.textField1.setText(app.getName());
                         noMatch.setVisible(true);
                     }
 
