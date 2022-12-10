@@ -48,41 +48,47 @@ public class PendingApplications extends JFrame{
                 Employee employee = new Employee();
                 Application app = new Application();
                 Dog dog = new Dog();
-                Object[] dataRow = null;
-                int[] selectedRows = table1.getSelectedRows();
-                ArrayList<Object[]> data = new ArrayList<Object[]>();
-
-                for (int i = 0; i < selectedRows.length; i++) {
-                    for (int j = 0; j < table1.getColumnCount(); j++) {
-                        dataRow[j] = (table1.getValueAt(table1.convertRowIndexToModel(selectedRows[i]),table1.convertColumnIndexToModel(j)));
-                    }
-                }
-                String[] stringArray = Arrays.copyOf(dataRow, dataRow.length, String[].class);
 
                 try {
-                    app.setAll(app, stringArray);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                    br = new BufferedReader(new FileReader(file));
+                    Object[] tableLines = br.lines().toArray();
+
+                    for (int i = 0; i< tableLines.length; i++){
+                        String line = tableLines[i].toString().trim();
+                        String[] appDataRow = line.split(", ");
+                        app.setAll(app, appDataRow);
+
+                    }
+
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
+
 
                 try {
                     br = new BufferedReader(new FileReader(dogFile));
                     Object[] tableLines = br.lines().toArray();
-                    for (int i = 1; i< tableLines.length; i++){
+                    for (int i = 0; i< tableLines.length; i++){
                         String line = tableLines[i].toString().trim();
                         String[] dogDataRow = line.split(", ");
                         dog.setAll(dog, dogDataRow);
                         findMatch(app, dog);
-                        if (matchFound == true){
-                            MatchFinder mf = new MatchFinder();
-                            mf.setVisible(true);
-                            mf.textField1.setText(dog.getName());
+                        if(matchFound){
                             break;
                         }
-
                     }
-                    if(matchFound == false){
+                    if (matchFound){
+                        MatchFinder mf = new MatchFinder();
+                        mf.setContentPane(mf.MatchFoundJPanel);
+                        mf.setSize(200,200);
+                        mf.setVisible(true);
+                        mf.textField1.setText(dog.getName());
+                    }
+                    if (!matchFound) {
+
                         NoMatchFound noMatch = new NoMatchFound();
+                        noMatch.setContentPane(noMatch.panel1);
+                        noMatch.setSize(200, 100);
                         noMatch.setVisible(true);
                     }
 
@@ -92,38 +98,24 @@ public class PendingApplications extends JFrame{
 
             }
         });
-        table1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                findMatchButton.setEnabled(true); ;
-            }
-        });
-
     }
     public void findMatch(Application app, Dog dog){
-        if(app.getDogSize() != dog.getSize()){
+        if(!app.getDogSize().equals(dog.getSize())){
             matchFound = false;
         }
-        else if (app.getKidsInHome() == true && dog.getKidsOK() == false){
+        else if (app.getKidsInHome() && !dog.getKidsOK()){
             matchFound = false;
         }
-        else if (app.getOtherDogs() == true && dog.getOtherDogsOK() == false){
+        else if (app.getOtherDogs() && !dog.getOtherDogsOK()){
             matchFound = false;
         }
-        else if (app.getHasCats() == true && dog.getCatsOK() == false){
+        else if (app.getHasCats() && !dog.getCatsOK()){
             matchFound = false;
         }
-        else if (app.getEnergyLevel() != dog.getEnergyLevel()){
+        else if (dog.getNeedsYard() && !app.getHasYard()){
             matchFound = false;
         }
-        else if (dog.getNeedsYard() == true && app.getHasYard() == false){
-            matchFound = false;
-        }
-        else{
-            matchFound = true;
-        }
+        else matchFound = app.getEnergyLevel().equals(dog.getEnergyLevel());
     }
-
 
 }
