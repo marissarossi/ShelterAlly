@@ -4,31 +4,44 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ViewDogsMenu extends JFrame{
-    JTable table1;
+    private static DefaultTableModel model;
     JPanel DogJPanel;
-    private JButton addNewDogButton;
+    JButton addNewDog;
+    JTable table1;
+
 
     ViewDogsMenu(){
-        DefaultTableModel model = new DefaultTableModel();
-
+        model = new DefaultTableModel();
         table1.setAutoCreateRowSorter(true);
         table1.setFillsViewportHeight(true);
         model.addColumn("Name");
         model.addColumn("Breed");
         model.addColumn("Size");
-        model.addColumn("Kids");
-        model.addColumn("Other Dogs");
-        model.addColumn("Cats");
+        model.addColumn("Kids OK?");
+        model.addColumn("Other Dogs OK?");
+        model.addColumn("Cats OK?");
         model.addColumn("Energy Level");
-        model.addColumn("Needs Yard");
+        model.addColumn("Needs Yard?");
         model.addColumn("Temperament");
         table1.setModel(model);
-        addNewDogButton.addActionListener(new ActionListener() {
+
+        addNewDog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // add dog Jpanel here
+                // NewDogEntry JPanel
+                NewDogEntry nd = new NewDogEntry();
+                nd.setContentPane(nd.titlePanel);
+                nd.setTitle("Shelter Ally");
+                nd.setSize(600,400);
+                nd.setVisible(true);
             }
         });
-    }
 
+    }
+    public static DefaultTableModel getModel() {
+        return model;
+    }
+    public void AddRowToTable(Object[] row){
+        model.addRow(row);
+    }
 }

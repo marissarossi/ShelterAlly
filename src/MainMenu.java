@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,8 +10,7 @@ public class MainMenu extends JFrame{
     private JButton viewCurrentDogsButton;
     private JPanel mmPanel;
     private JButton pendingApplicationsButton;
-    private JPanel MainJPanel;
-    private JPanel DogJPanel;
+
 
     public MainMenu() {
         newApplicationEntryButton.addActionListener(new ActionListener() {
@@ -33,6 +33,26 @@ public class MainMenu extends JFrame{
                 vdm.setVisible(true);
             }
         });
+        pendingApplicationsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PendingApplications pa = new PendingApplications();
+                pa.setContentPane(pa.MainJPanel);
+                pa.setSize(900,500);
+                pa.setTitle("Shelter Ally");
+                pa.setVisible(true);
+            }
+        });
+        viewSheltersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewShelters vs = new ViewShelters();
+                vs.setContentPane(vs.shelterMainPanel);
+                vs.setSize(500,500);
+                vs.setTitle("Shelter Ally");
+                vs.setVisible(true);
+            }
+        });
     }
 
     private void createUIComponents() {
@@ -46,5 +66,6 @@ public class MainMenu extends JFrame{
         mm.setSize(450,400);
         mm.setVisible(true);
         mm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 }
