@@ -55,7 +55,7 @@ public class Dog {
     public void setEnergyLevel(String energyLevel){
         this.energyLevel = energyLevel;
     }
-    public boolean setNeedsYard(){
+    public boolean setNeedsYard(boolean needsYard){
         return needsYard;
     }
     public void getNeedsYard(boolean needsYard){
