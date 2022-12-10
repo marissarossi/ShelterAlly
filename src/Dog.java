@@ -13,55 +13,58 @@ public class Dog {
     public String getName(){
         return name;
     }
-    public void setName(){
+    public void setName(String name){
+        this.name = name;
 
     }
     public String getBreed(){
         return breed;
     }
-    public void setBreed(){
-
+    public void setBreed(String breed){
+        this.breed = breed;
     }
     public String getSize(){
         return size;
     }
-    public void setSize(){
+    public void setSize(String size){
+        this.size= size;
 
     }
     public boolean getKidsOK(){
         return kidsOK;
     }
-    public void setKidsOK(){
-
+    public void setKidsOK(boolean kidsOK){
+        this.kidsOK = kidsOK;
     }
     public boolean getOtherDogsOK(){
         return otherDogsOK;
     }
-    public void setOtherDogsOK(){
+    public void setOtherDogsOK(boolean otherDogsOK){
+        this.otherDogsOK = otherDogsOK;
 
     }
     public boolean getCatsOK(){
         return catsOK;
     }
-    public void setCatsOK(){
-
+    public void setCatsOK(boolean catsOK){
+        this.catsOK = catsOK;
     }
     public String getEnergyLevel(){
         return energyLevel;
     }
-    public void setEnergyLevel(){
-
+    public void setEnergyLevel(String energyLevel){
+        this.energyLevel = energyLevel;
     }
     public boolean setNeedsYard(){
         return needsYard;
     }
-    public void getNeedsYard(){
-
+    public void getNeedsYard(boolean needsYard){
+        this.needsYard = needsYard;
     }
     public String getTemperament(){
         return temperament;
     }
-    public void setTemperament(){
-
+    public void setTemperament(String temperament){
+        this.temperament = temperament;
     }
 }

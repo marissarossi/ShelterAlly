@@ -10,58 +10,32 @@ public class Application {
     public String energyLevel;
     public boolean hasYard;
 
-    public String getName(){
-        return name;
-    }
-    public void setName(){
-
-    }
+    public String getName(){ return name; }
+    public void setName(String name){ this.name = name; }
     public String getAddress(){
         return address;
     }
-    public void setAddress(){
-
-    }
+    public void setAddress(String address){this.address = address;    }
     public String getPhoneNumber(){
         return phoneNumber;
     }
-    public void setPhoneNumber(){
-
-    }
-    public String getDogSize(){
-        return dogSize;
-    }
-    public void setDogSize(){
-
-    }
-    public boolean getKidsInHome(){
-        return kidsInHome;
-    }
-    public void setKidsInHome(){
-
-    }
+    public void setPhoneNumber(String phoneNumber){ this.phoneNumber = phoneNumber;    }
+    public String getDogSize(){return dogSize;    }
+    public void setDogSize(String dogSize){ this.dogSize = dogSize;    }
+    public boolean getKidsInHome(){return kidsInHome;    }
+    public void setKidsInHome(boolean kidsInHome){this.kidsInHome = kidsInHome;    }
     public boolean getOtherDogs(){
         return otherDogs;
     }
-    public void setOtherDogs(){
-
-    }
+    public void setOtherDogs(boolean otherDogs){this.otherDogs = otherDogs;    }
     public boolean getHasCats(){
         return hasCats;
     }
-    public void setHasCats(){
-
-    }
-    public String getEnergyLevel(){
-        return energyLevel;
-    }
-    public void setEnergyLevel(){
-
-    }
+    public void setHasCats(boolean hasCats){ this.hasCats = hasCats;}
+    public String getEnergyLevel(){ return energyLevel;    }
+    public void setEnergyLevel(String energyLevel){ this.energyLevel = energyLevel;    }
     public boolean setHasYard(){
         return hasYard;
     }
-    public void getHasYard(){
-
-    }
+    public void getHasYard(boolean hasYard){this.hasYard = hasYard;    }
 }

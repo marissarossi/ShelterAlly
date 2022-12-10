@@ -8,6 +8,7 @@ public class MainMenu extends JFrame{
     private JButton viewSheltersButton;
     private JButton viewCurrentDogsButton;
     private JPanel mmPanel;
+    private JButton pendingApplicationsButton;
     private JPanel MainJPanel;
     private JPanel DogJPanel;
 
