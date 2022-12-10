@@ -26,7 +26,7 @@ public class ViewDogsMenu extends JFrame{
         addNewDogButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // pop up dialog to add new dog
+                // add dog Jpanel here
             }
         });
     }
