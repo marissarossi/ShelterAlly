@@ -2,29 +2,38 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class ViewDogsMenu extends JFrame{
     private static DefaultTableModel model;
     JPanel DogJPanel;
     JButton addNewDog;
     JTable table1;
+    String filePath = "Dogs.txt";
+    File file = new File(filePath);
+    BufferedReader br;
 
 
     ViewDogsMenu(){
-        model = new DefaultTableModel();
-        table1.setAutoCreateRowSorter(true);
-        table1.setFillsViewportHeight(true);
-        model.addColumn("Name");
-        model.addColumn("Breed");
-        model.addColumn("Size");
-        model.addColumn("Kids OK?");
-        model.addColumn("Other Dogs OK?");
-        model.addColumn("Cats OK?");
-        model.addColumn("Energy Level");
-        model.addColumn("Needs Yard?");
-        model.addColumn("Temperament");
-        table1.setModel(model);
+        try {
+            br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(", ");
+            model = (DefaultTableModel) table1.getModel();
+            model.setColumnIdentifiers(columnsName);
 
+            Object[] tableLines = br.lines().toArray();
+
+            for (int i = 0; i< tableLines.length; i++){
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split(", ");
+                model.addRow(dataRow);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         addNewDog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,8 +49,5 @@ public class ViewDogsMenu extends JFrame{
     }
     public static DefaultTableModel getModel() {
         return model;
-    }
-    public void AddRowToTable(Object[] row){
-        model.addRow(row);
     }
 }

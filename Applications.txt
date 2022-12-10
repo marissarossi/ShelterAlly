@@ -1,4 +1,4 @@
-
+Name, Address, Phone Number, Preferred Size, Kids, Other Dogs, Cats, Energy Level, Yard
 Erin, 123 Sesame St, 1234567890, large, true, true, false, medium, true
 Richard, 13 First St, 4044044400, medium, false, false, false, low, true
 Hannah, 54 Piedmont Ave, 6782035937, small, false, false, true, low, false
