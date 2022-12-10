@@ -28,4 +28,6 @@ public class PendingApplications extends JFrame{
     public void AddRowToTable(Object[] row){
         model.addRow(row);
     }
+
+
 }

@@ -1,3 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class Dog {
     private ReadWriteLock lockManager = new ReadWriteLock();
     public String name;
@@ -55,10 +59,10 @@ public class Dog {
     public void setEnergyLevel(String energyLevel){
         this.energyLevel = energyLevel;
     }
-    public boolean setNeedsYard(boolean needsYard){
+    public boolean getNeedsYard(){
         return needsYard;
     }
-    public void getNeedsYard(boolean needsYard){
+    public void setNeedsYard(boolean needsYard){
         this.needsYard = needsYard;
     }
     public String getTemperament(){
@@ -66,5 +70,15 @@ public class Dog {
     }
     public void setTemperament(String temperament){
         this.temperament = temperament;
+    }
+
+    public static void writeTo(Dog dog) throws IOException {
+        FileWriter fw = new FileWriter("Dogs.txt",true);
+        PrintWriter out = new PrintWriter(fw);
+        out.println(dog.getName() + ", " + dog.getBreed() + ", " +  dog.getSize() + ", " + dog.getKidsOK() +
+                ", " + dog.getOtherDogsOK() + ", " + dog.getCatsOK() + ", " + dog.getEnergyLevel()
+                + ", " + dog.getNeedsYard() + ", "+ dog.getTemperament());
+        out.close();
+
     }
 }

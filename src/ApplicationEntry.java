@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class ApplicationEntry extends JFrame{
     public JPanel MainJPanel;
@@ -28,7 +29,7 @@ public class ApplicationEntry extends JFrame{
     private JPanel QuestionsJPanel;
     private JPanel RadioButtJPanel;
     private JButton submitButton;
-    ButtonGroup buttonGroup1, buttonGroup2, buttonGroup3, buttonGroup4, buttonGroup5, buttonGroup6;
+    ButtonGroup buttonGroup1, buttonGroup2;
 
     String name;
     String address;
@@ -57,8 +58,26 @@ public class ApplicationEntry extends JFrame{
                 name = textField1.getText();
                 address = textField2.getText();
                 phoneNumber = textField3.getText();
-                size = buttonGroup1.getSelection().getActionCommand();
-                energyLevel = buttonGroup2.getSelection().getActionCommand();
+
+                if (smallRadioButton1.isSelected()){
+                    size = "small";
+                }
+                else if (mediumRadioButton1.isSelected()){
+                    size = "medium";
+                }
+                else if (largeRadioButton1.isSelected()){
+                    size = "large";
+                }
+
+                if (lowRadioButton.isSelected()){
+                    energyLevel = "low";
+                }
+                else if (mediumRadioButton.isSelected()){
+                    energyLevel = "medium";
+                }
+                else if (highRadioButton.isSelected()){
+                    energyLevel = "high";
+                }
 
                 if (yesRadioButton.isSelected()){
                     kidsInHome = true;
@@ -100,8 +119,12 @@ public class ApplicationEntry extends JFrame{
                 app.setKidsInHome(kidsInHome);
                 app.setHasYard(hasYard);
 
-                // to keep Added Dogs in the list in "Current Dogs", keep the window open
-                PendingApplications.getModel().addRow(new Object[]{name, address, phoneNumber, size, energyLevel, otherDogsInHome, catsInHome, kidsInHome, hasYard});
+                try {
+                    app.writeTo(app);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                System.exit(0);
             }
         });
     }

@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class Application {
     private ReadWriteLock lockManager = new ReadWriteLock();
     public String name;
@@ -9,6 +11,7 @@ public class Application {
     public boolean hasCats;
     public String energyLevel;
     public boolean hasYard;
+
 
     public String getName(){ return name; }
     public void setName(String name){ this.name = name; }
@@ -38,4 +41,16 @@ public class Application {
         return hasYard;
     }
     public void setHasYard(boolean hasYard){this.hasYard = hasYard;    }
+
+    public static void writeTo(Application app) throws IOException{
+        FileWriter fw = new FileWriter("Applications.txt",true);
+        PrintWriter out = new PrintWriter(fw);
+        out.println(app.getName() + ", " + app.getAddress() + ", " + app.getPhoneNumber() + ", " + app.getDogSize() +
+                ", " + app.getKidsInHome() + ", " + app.getOtherDogs() + ", " + app.getHasCats() + ", " + app.getEnergyLevel()
+                + ", " + app.getHasYard());
+        out.close();
+
+    }
+
+
 }

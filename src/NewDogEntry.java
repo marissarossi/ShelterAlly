@@ -3,6 +3,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Vector;
 
 public class NewDogEntry extends JFrame{
@@ -75,6 +76,12 @@ public class NewDogEntry extends JFrame{
                 dog.setCatsOK(catsOK);
                 dog.setKidsOK(kidsOK);
                 dog.setNeedsYard(needsYard);
+
+                try {
+                    dog.writeTo(dog);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
 
                 // to keep Added Dogs in the list in "Current Dogs", keep the window open
                 ViewDogsMenu.getModel().addRow(new Object[]{name, breed, size, kidsOK, otherDogsOK, catsOK, energyLevel, needsYard, temperament});
