@@ -51,6 +51,16 @@ public class Application {
         out.close();
 
     }
-
+    public void setAll(Application app, String[] str) throws IOException{
+        app.setName(str[0]);
+        app.setAddress(str[1]);
+        app.setPhoneNumber(str[2]);
+        app.setDogSize(str[3]);
+        app.setKidsInHome(Boolean.valueOf(str[4]));
+        app.setOtherDogs(Boolean.valueOf(str[5]));
+        app.setHasCats(Boolean.valueOf(str[6]));
+        app.setEnergyLevel(str[7]);
+        app.setHasYard(Boolean.valueOf(str[8]));
+    }
 
 }

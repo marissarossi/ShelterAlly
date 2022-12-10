@@ -83,8 +83,6 @@ public class NewDogEntry extends JFrame{
                     ioException.printStackTrace();
                 }
 
-                // to keep Added Dogs in the list in "Current Dogs", keep the window open
-                ViewDogsMenu.getModel().addRow(new Object[]{name, breed, size, kidsOK, otherDogsOK, catsOK, energyLevel, needsYard, temperament});
             }
         });
     }

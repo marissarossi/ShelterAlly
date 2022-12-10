@@ -81,4 +81,15 @@ public class Dog {
         out.close();
 
     }
+    public void setAll(Dog dog, String[] str) throws IOException{
+        dog.setName(str[0]);
+        dog.setBreed(str[1]);
+        dog.setSize(str[2]);
+        dog.setKidsOK(Boolean.valueOf(str[3]));
+        dog.setOtherDogsOK(Boolean.valueOf(str[4]));
+        dog.setCatsOK(Boolean.valueOf(str[5]));
+        dog.setEnergyLevel(str[6]);
+        dog.setNeedsYard(Boolean.valueOf(str[7]));
+        dog.setTemperament(str[8]);
+    }
 }
