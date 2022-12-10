@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Application {
     private ReadWriteLock lockManager = new ReadWriteLock();
@@ -11,6 +13,7 @@ public class Application {
     public boolean hasCats;
     public String energyLevel;
     public boolean hasYard;
+    File apps = new File("Applications.txt");
 
 
     public String getName(){ return name; }
@@ -62,5 +65,6 @@ public class Application {
         app.setEnergyLevel(str[7]);
         app.setHasYard(Boolean.valueOf(str[8]));
     }
+
 
 }

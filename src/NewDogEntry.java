@@ -1,6 +1,7 @@
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -82,6 +83,10 @@ public class NewDogEntry extends JFrame{
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+
+                JComponent comp = (JComponent) e.getSource();
+                Window win = SwingUtilities.getWindowAncestor(comp);
+                win.dispose();
 
             }
         });

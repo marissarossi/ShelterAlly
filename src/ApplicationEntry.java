@@ -124,7 +124,10 @@ public class ApplicationEntry extends JFrame{
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
-                System.exit(0);
+                JComponent comp = (JComponent) e.getSource();
+                Window win = SwingUtilities.getWindowAncestor(comp);
+                win.dispose();
+
             }
         });
     }
