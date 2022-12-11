@@ -1,20 +1,22 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.lang.Integer.*;
 
-public class ShelterEntry {
-    private JPanel ShelterEntryJPanel;
-    private JPanel OuterJPanel;
-    private JPanel bodyJPanel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JButton submitButton;
-    private JTextField textField7;
+public class ShelterEntry extends JFrame{
+    JPanel ShelterEntryJPanel;
+    JPanel OuterJPanel;
+    JPanel bodyJPanel;
+    JTextField textField1;
+    JTextField textField2;
+    JTextField textField3;
+    JTextField textField4;
+    JTextField textField5;
+    JTextField textField6;
+    JButton submitButton;
+    JTextField textField7;
 
 
     public ShelterEntry() {
@@ -45,7 +47,20 @@ public class ShelterEntry {
                     shelter.items.add(building1);
                 }
                 shelter.CalculateCapacity();
+
+                try {
+                    shelter.writeTo(shelter);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+
+
+                JComponent comp = (JComponent) e.getSource();
+                Window win = SwingUtilities.getWindowAncestor(comp);
+                win.dispose();
             }
+
         });
     }
 }
