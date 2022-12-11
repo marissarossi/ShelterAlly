@@ -1,9 +1,41 @@
 public class AggressiveMeetAndGreet extends AbstractMeetAndGreet{
     @Override
+    public void consult() {
+
+    }
+
+    @Override
+    public void meetDog() {
+
+    }
+
+    @Override
+    public void playTime() {
+
+    }
+
+    @Override
     public void start(){
-        this.MeetAndGreetIF().setConsultTime(20);
-        this.MeetAndGreetIF().setMeetTime(20);
-        this.MeetAndGreetIF().setPlayTime(10);
+    }
+
+    @Override
+    public void setConsultTime(int min) {
+
+    }
+
+    @Override
+    public void setMeetTime(int min) {
+
+    }
+
+    @Override
+    public void setPlayTime(int min) {
+
+    }
+
+    @Override
+    public void done() {
+
     }
 }
 

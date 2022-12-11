@@ -4,3 +4,4 @@ Richard, 13 First St, 4044044400, medium, false, false, false, low, true
 Hannah, 54 Piedmont Ave, 6782035937, small, false, false, true, low, false
 Maddy, 34 Herodian Way, 9941852954, medium, true, false, false, high, true
 David, 84 Peachtree Place, 3867269462, medium, true, false, false, low, true
+Tony, Pliers, 5551243565, small, false, false, false, medium, true

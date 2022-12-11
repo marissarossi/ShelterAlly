@@ -9,9 +9,15 @@ abstract class AbstractMeetAndGreet implements MeetAndGreetIF{
         this.environment = environment;
     } // setEnvironment(FoodProcessorEnvironmentIF)
 
-    protected MeetAndGreetIF getEnvironment() {
-        return environment;
-    } // getEnvironment()
+   // protected MeetAndGreetIF getEnvironment() {
+        //return environment;
+    //} // getEnvironment()
+
+    public abstract void consult();
+
+    public abstract void meetDog();
+
+    public abstract void playTime();
 
     public abstract void start() ;
 }

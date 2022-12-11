@@ -32,6 +32,11 @@ public class MeetAndGreetEnvironment implements MeetAndGreetIF{
         String play = "Play for " + min + " minutes.";
     }
 
+    @Override
+    public void done() {
+
+    }
+
 
     public void writeTo(Dog dog, Application app) throws IOException {
         FileWriter fw = new FileWriter("MeetAndGreet.txt",true);
