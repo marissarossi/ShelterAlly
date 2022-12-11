@@ -2,9 +2,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 
 public class pendingApprovalView extends JFrame {
     JPanel mainJPanel;
@@ -16,7 +14,33 @@ public class pendingApprovalView extends JFrame {
     File file = new File(filePath);
     Dog dog = new Dog();
     Application app = new Application();
+    String dogName, appName;
 
+    public void setDog(){
+        try {
+            br = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Object[] tableLines = br.lines().toArray();
+        String line = tableLines[1].toString().trim();
+        String[] dataRow = line.split(", ");
+        dogName = dataRow[1];
+
+
+    }
+    public void setApplication(){
+        try {
+            br = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Object[] tableLines = br.lines().toArray();
+        String line = tableLines[1].toString().trim();
+        String[] dataRow = line.split(", ");
+        appName = dataRow[0];
+
+    }
 
 
     public pendingApprovalView() {
@@ -46,6 +70,25 @@ public class pendingApprovalView extends JFrame {
                 dm.setContentPane(dm.DecisionMenuJPanel);
                 dm.setSize(400,400);
                 dm.setVisible(true);
+
+                setDog();
+                int dogIndex = dog.getLineNumber(dogName, new File("Dogs.txt")) - 1;
+                String[] dogData = dog.getAll(dogIndex);
+                try {
+                    dog.setAll(dog, dogData);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+                setApplication();
+                int appIndex = app.getLineNumber(appName, new File("Applications.txt")) - 1;
+                String[] appData = app.getAll(appIndex);
+                try {
+                    app.setAll(app, appData);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
                 dm.textField1.setText(dog.getName());
                 dm.textField2.setText(app.getName());
                 dm.dog = dog;

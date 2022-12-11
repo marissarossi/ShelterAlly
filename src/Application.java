@@ -14,6 +14,7 @@ public class Application {
     public String energyLevel;
     public boolean hasYard;
     File apps = new File("Applications.txt");
+    BufferedReader br;
 
 
     public String getName(){ return name; }
@@ -65,13 +66,26 @@ public class Application {
         app.setEnergyLevel(str[7]);
         app.setHasYard(Boolean.valueOf(str[8]));
     }
+
+    public String[] getAll(int index){
+        try {
+            br = new BufferedReader(new FileReader(apps));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Object[] tableLines = br.lines().toArray();
+        String line = tableLines[index].toString().trim();
+        String[] dataRow = line.split(", ");
+        return dataRow;
+
+    }
     public void callDelete(String dogName){
         String filepath = "Applications.txt";
         File file = new File(filepath);
         int index = getLineNumber(dogName, file);
         remove(filepath, index);
     }
-    private static int getLineNumber(String name, File file) {
+    public static int getLineNumber(String name, File file) {
         boolean found = false;
         int lineCount = 0;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {

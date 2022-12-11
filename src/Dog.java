@@ -1,12 +1,4 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.InputStreamReader;
+import java.io.*;
 
 
 public class Dog {
@@ -20,6 +12,7 @@ public class Dog {
     public String energyLevel;
     public boolean needsYard;
     public String temperament;
+    BufferedReader br;
 
     public String getName(){
         return name;
@@ -99,13 +92,25 @@ public class Dog {
         dog.setNeedsYard(Boolean.valueOf(str[7]));
         dog.setTemperament(str[8]);
     }
+    public String[] getAll(int index){
+        try {
+            br = new BufferedReader(new FileReader(new File("Dogs.txt")));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Object[] tableLines = br.lines().toArray();
+        String line = tableLines[index].toString().trim();
+        String[] dataRow = line.split(", ");
+        return dataRow;
+
+    }
     public void callDelete(String dogName){
         String filepath = "Dogs.txt";
         File file = new File(filepath);
         int index = getLineNumber(dogName, file);
         remove(filepath, index);
     }
-    private static int getLineNumber(String name, File file) {
+    public static int getLineNumber(String name, File file) {
         boolean found = false;
         int lineCount = 0;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {

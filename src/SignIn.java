@@ -5,10 +5,9 @@ import java.awt.event.MouseEvent;
 import java.util.Arrays;
 
 public class SignIn extends JFrame{
-    private JTextField enterPasswordTextField;
     private JButton submitButton;
     private JPasswordField passwordField1;
-    private JTextField accessDeniedField;
+    private JLabel accessDeniedField;
     JPanel SignInJFrame;
     private JPanel accessPanel;
 
