@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 
 public class NoMatchFound extends JFrame{
     JPanel panel1;
-    JTextField sorryNoMatchFoundTextField;
     JButton OKButton;
     JTextField textField1;
 
