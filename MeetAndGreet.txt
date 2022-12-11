@@ -1,1 +1,4 @@
 Date, Time, Dog Name, Applicant Name
+01/05/23, 11:00 AM, Rocky, Erin
+01/02/23, 02:30 PM, Luna, Maddy
+, , Rocky, Erin
