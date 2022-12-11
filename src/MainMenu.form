@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="mmPanel" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="2" left="2" bottom="2" right="2"/>
     <constraints>
-      <xy x="20" y="20" width="472" height="400"/>
+      <xy x="20" y="20" width="445" height="429"/>
     </constraints>
     <properties>
       <background color="-395547"/>
@@ -93,6 +93,19 @@
           <hideActionText value="true"/>
           <icon value="resources/pendingicon_1_13_2_60.png"/>
           <text value="Pending Applications"/>
+        </properties>
+      </component>
+      <component id="50f18" class="javax.swing.JButton" binding="meetAndGreetsButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-5521740"/>
+          <foreground color="-16579837"/>
+          <hideActionText value="false"/>
+          <icon value="resources/ballicon.png"/>
+          <iconTextGap value="10"/>
+          <text value="Meet And Greets"/>
         </properties>
       </component>
     </children>

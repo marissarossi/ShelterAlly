@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class MainMenu extends JFrame{
@@ -10,6 +12,7 @@ public class MainMenu extends JFrame{
     private JButton viewCurrentDogsButton;
     private JPanel mmPanel;
     private JButton pendingApplicationsButton;
+    private JButton meetAndGreetsButton;
 
 
     public MainMenu() {
@@ -51,6 +54,13 @@ public class MainMenu extends JFrame{
                 vs.setSize(500,500);
                 vs.setTitle("Shelter Ally");
                 vs.setVisible(true);
+            }
+        });
+        meetAndGreetsButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
             }
         });
     }
