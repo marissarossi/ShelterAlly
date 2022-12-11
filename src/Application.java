@@ -65,6 +65,72 @@ public class Application {
         app.setEnergyLevel(str[7]);
         app.setHasYard(Boolean.valueOf(str[8]));
     }
+    public void callDelete(String dogName){
+        String filepath = "Applications.txt";
+        File file = new File(filepath);
+        int index = getLineNumber(dogName, file);
+        remove(filepath, index);
+    }
+    private static int getLineNumber(String name, File file) {
+        boolean found = false;
+        int lineCount = 0;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
+            String line;
+            while ((line = reader.readLine()) != null && !found) {
+                ++lineCount; // increment and get (start at 0)
+                found = line.trim().contains(name); // found it?
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        if (!found) {
+            // we didn't find it... return -1 (an impossible valid value) to handle that scenario.
+            lineCount = -1;
+        }
+        return lineCount; // found it, what line?
+
+    }
+
+    public void remove(String filepath, int i){
+        String tempFile = "temp.txt";
+        File oldFile = new File(filepath);
+        File newFile = new File(tempFile);
+
+        int line = 0;
+        String currentLine;
+        int deleteLine = i;
+        try{
+            FileWriter fw = new FileWriter(tempFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            FileReader fr = new FileReader(filepath);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((currentLine = br.readLine()) != null){
+                line++;
+                if(deleteLine != line){
+                    pw.println(currentLine);
+                }
+            }
+
+            pw.flush();
+            pw.close();
+            fr.close();
+            br.close();
+            bw.close();
+            fw.close();
+
+            oldFile.delete();
+            File dump = new File(filepath);
+            newFile.renameTo(dump);
 
 
+        }
+        catch (Exception e){ System.out.println(e);}
+
+    }
 }
+
+
+
