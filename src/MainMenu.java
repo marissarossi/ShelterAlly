@@ -13,6 +13,7 @@ public class MainMenu extends JFrame{
     private JPanel mmPanel;
     private JButton pendingApplicationsButton;
     private JButton meetAndGreetsButton;
+    private JButton managerButton;
 
 
     public MainMenu() {
@@ -66,6 +67,12 @@ public class MainMenu extends JFrame{
                 mg.setTitle("Shelter Ally");
                 mg.setVisible(true);
 
+            }
+        });
+        managerButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
             }
         });
     }
