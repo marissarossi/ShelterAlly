@@ -81,7 +81,7 @@ public class PendingApplications extends JFrame{
                     if (matchFound){
                         MatchFinder mf = new MatchFinder();
                         mf.setContentPane(mf.MatchFoundJPanel);
-                        mf.setSize(300,200);
+                        mf.setSize(400,400);
                         mf.setVisible(true);
                         mf.textField1.setText(dog.getName());
                         mf.dog = dog;
@@ -91,7 +91,7 @@ public class PendingApplications extends JFrame{
 
                         NoMatchFound noMatch = new NoMatchFound();
                         noMatch.setContentPane(noMatch.panel1);
-                        noMatch.setSize(200, 150);
+                        noMatch.setSize(400, 400);
                         noMatch.textField1.setText(app.getName());
                         noMatch.setVisible(true);
                     }
