@@ -84,6 +84,8 @@ public class PendingApplications extends JFrame{
                         mf.setSize(300,200);
                         mf.setVisible(true);
                         mf.textField1.setText(dog.getName());
+                        mf.dog = dog;
+                        mf.app = app;
                     }
                     if (!matchFound) {
 
