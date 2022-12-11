@@ -46,16 +46,15 @@ public class PendingApplications extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Employee employee = new Employee();
                 Application app = new Application();
                 Dog dog = new Dog();
-                clicks = clicks +1;
+                clicks = clicks + 1;
 
                 try {
                     br = new BufferedReader(new FileReader(file));
                     Object[] tableLines = br.lines().toArray();
 
-                    for (int i = clicks; i< clicks + 1; i++){
+                    for (int i = clicks; i < clicks + 1; i++){
                         String line = tableLines[i].toString().trim();
                         String[] appDataRow = line.split(", ");
                         app.setAll(app, appDataRow);
