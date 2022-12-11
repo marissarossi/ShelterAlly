@@ -60,6 +60,11 @@ public class MainMenu extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                MeetAndGreetMenu mg = new MeetAndGreetMenu();
+                mg.setContentPane(mg.MGJPanel);
+                mg.setSize(500,500);
+                mg.setTitle("Shelter Ally");
+                mg.setVisible(true);
 
             }
         });
