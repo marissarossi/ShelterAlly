@@ -47,6 +47,8 @@ public class ShelterEntry extends JFrame{
                     shelter.items.add(building1);
                 }
                 shelter.CalculateCapacity();
+                shelter.setAddress(textField3.getText());
+                shelter.setPhoneNumber(textField2.getText());
 
                 try {
                     shelter.writeTo(shelter);
