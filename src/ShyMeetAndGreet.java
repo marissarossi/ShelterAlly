@@ -1,21 +1,8 @@
 public class ShyMeetAndGreet extends AbstractMeetAndGreet{
     @Override
-    public void consult() {
-
-    }
-
-    @Override
-    public void meetDog() {
-
-    }
-
-    @Override
-    public void playTime() {
-
-    }
-
-    @Override
-    public void done() {
-
+    public void start(){
+        this.MeetAndGreetIF().setConsultTime(10);
+        this.MeetAndGreetIF().setMeetTime(30);
+        this.MeetAndGreetIF().setPlayTime(10);
     }
 }
