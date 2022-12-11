@@ -2,20 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
-public class SignIn {
+public class SignIn extends JFrame{
     private JTextField enterPasswordTextField;
     private JButton submitButton;
     private JPasswordField passwordField1;
     private JTextField accessDeniedField;
+    JPanel SignInJFrame;
+    private JPanel accessPanel;
 
     public SignIn() {
         submitButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                String password = passwordField1.getPassword().toString();
-                if (password == "password"){
+                char[] input = passwordField1.getPassword();
+
+                if (isPasswordCorrect(input)){
                     pendingApprovalView pa = new pendingApprovalView();
                     pa.setContentPane(pa.mainJPanel);
                     pa.setSize(400,400);
@@ -26,10 +30,27 @@ public class SignIn {
                     win.dispose();
                 }
                 else{
-                    accessDeniedField.setEnabled(true);
+                    accessDeniedField.setVisible(true);
+                    accessPanel.revalidate();
+                    accessPanel.repaint();
                 }
 
             }
         });
+    }
+    private static boolean isPasswordCorrect(char[] input) {
+        boolean isCorrect = true;
+        char[] password = {'p', 'a', 's', 's', 'w', 'o', 'r', 'd'};
+
+        if (input.length != password.length) {
+            isCorrect = false;
+        } else {
+            isCorrect = Arrays.equals (input, password);
+        }
+
+        //Zero out the password.
+        Arrays.fill(password,'0');
+
+        return isCorrect;
     }
 }

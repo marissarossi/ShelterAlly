@@ -1,4 +1,4 @@
-public class StandardMeetAndGreet extends AbstractMeetAndGreet{
+public class ShyMeetAndGreet extends AbstractMeetAndGreet{
     @Override
     public void consult() {
 
@@ -15,8 +15,7 @@ public class StandardMeetAndGreet extends AbstractMeetAndGreet{
     }
 
     @Override
-    public void start() {
-
+    public void start(){
     }
 
     @Override

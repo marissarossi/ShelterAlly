@@ -14,6 +14,9 @@ public class pendingApprovalView extends JFrame {
     BufferedReader br;
     String filePath = "MeetAndGreetCompleted.txt";
     File file = new File(filePath);
+    Dog dog = new Dog();
+    Application app = new Application();
+
 
 
     public pendingApprovalView() {
@@ -39,6 +42,14 @@ public class pendingApprovalView extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                DecisionMenu dm = new DecisionMenu();
+                dm.setContentPane(dm.DecisionMenuJPanel);
+                dm.setSize(400,400);
+                dm.setVisible(true);
+                dm.textField1.setText(dog.getName());
+                dm.textField2.setText(app.getName());
+                dm.dog = dog;
+                dm.app = app;
             }
         });
     }

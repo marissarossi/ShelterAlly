@@ -73,6 +73,10 @@ public class MainMenu extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                SignIn si = new SignIn();
+                si.setContentPane(si.SignInJFrame);
+                si.setSize(400,200);
+                si.setVisible(true);
             }
         });
     }
