@@ -37,6 +37,7 @@ public class MGScheduler extends JFrame{
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
 
+
             }
         });
     }

@@ -114,7 +114,7 @@ public class Application {
         String currentLine;
         int deleteLine = i;
         try{
-            FileWriter fw = new FileWriter(tempFile, true);
+            FileWriter fw = new FileWriter(tempFile, false);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
 
@@ -135,9 +135,24 @@ public class Application {
             bw.close();
             fw.close();
 
-            oldFile.delete();
-            File dump = new File(filepath);
-            newFile.renameTo(dump);
+            FileWriter fw2 = new FileWriter(filepath, false);
+            BufferedWriter bw2 = new BufferedWriter(fw2);
+            PrintWriter pw2 = new PrintWriter(bw2);
+
+            FileReader fr2 = new FileReader("temp.txt");
+            BufferedReader br2 = new BufferedReader(fr2);
+
+            while ((currentLine = br2.readLine()) != null) {
+                line++;
+                pw2.println(currentLine);
+
+            }
+            pw2.flush();
+            pw2.close();
+            fr2.close();
+            br2.close();
+            bw2.close();
+            fw2.close();
 
 
         }

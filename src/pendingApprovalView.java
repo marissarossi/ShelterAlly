@@ -15,6 +15,7 @@ public class pendingApprovalView extends JFrame {
     Dog dog = new Dog();
     Application app = new Application();
     String dogName, appName;
+    int clicks = 0;
 
     public void setDog(){
         try {
@@ -71,6 +72,28 @@ public class pendingApprovalView extends JFrame {
                 dm.setSize(400,400);
                 dm.setVisible(true);
 
+                clicks = clicks + 1;
+
+                try {
+                    br = new BufferedReader(new FileReader(file));
+                    Object[] tableLines = br.lines().toArray();
+
+                    for (int i = clicks; i < clicks + 1; i++){
+                        setApplication();
+                        int appIndex = app.getLineNumber(appName, new File("Applications.txt")) - 1;
+                        String[] appData = app.getAll(appIndex);
+                        try {
+                            app.setAll(app, appData);
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
+
+                    }
+
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+
                 setDog();
                 int dogIndex = dog.getLineNumber(dogName, new File("Dogs.txt")) - 1;
                 String[] dogData = dog.getAll(dogIndex);
@@ -80,14 +103,7 @@ public class pendingApprovalView extends JFrame {
                     ioException.printStackTrace();
                 }
 
-                setApplication();
-                int appIndex = app.getLineNumber(appName, new File("Applications.txt")) - 1;
-                String[] appData = app.getAll(appIndex);
-                try {
-                    app.setAll(app, appData);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+
 
                 dm.textField1.setText(dog.getName());
                 dm.textField2.setText(app.getName());

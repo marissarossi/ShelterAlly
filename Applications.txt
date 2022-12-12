@@ -1,7 +1,6 @@
 Name, Address, Phone Number, Preferred Size, Kids, Other Dogs, Cats, Energy Level, Yard
-Erin, 123 Sesame St, 1234567890, large, true, true, false, medium, true
-Richard, 13 First St, 4044044400, medium, false, false, false, low, true
+Richard, 13 First St, 4044044400, medium, false, false, true, low, true
 Hannah, 54 Piedmont Ave, 6782035937, small, false, false, true, low, false
 Maddy, 34 Herodian Way, 9941852954, medium, true, false, false, high, true
-David, 84 Peachtree Place, 3867269462, medium, true, false, false, low, true
 Tony, Pliers, 5551243565, small, false, false, false, medium, true
+Lauren, 54 Friendship Way, 2943826309, small, true, false, false, low, true

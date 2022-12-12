@@ -92,7 +92,6 @@ public class PendingApplications extends JFrame{
                         NoMatchFound noMatch = new NoMatchFound();
                         noMatch.setContentPane(noMatch.panel1);
                         noMatch.setSize(400, 400);
-                        noMatch.textField1.setText(app.getName());
                         noMatch.setVisible(true);
                     }
 

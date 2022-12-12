@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.*;
 
 public class DecisionMenu extends JFrame{
     JPanel DecisionMenuJPanel;
@@ -11,6 +12,9 @@ public class DecisionMenu extends JFrame{
     JButton denyButton;
     Dog dog = new Dog();
     Application app = new Application();
+    Manager manager = new Manager();
+
+
 
 
 
@@ -21,7 +25,10 @@ public class DecisionMenu extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 //code to call manager's approve method
-
+                manager.makeTemp("MeetAndGreetCompleted.txt", 2);
+                manager.rewrite("MeetAndGreetCompleted.txt");
+                dog.callDelete(dog.getName());
+                app.callDelete(app.getName());
                 JComponent comp = (JComponent) e.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
@@ -32,7 +39,8 @@ public class DecisionMenu extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 //code to perform manager's deny method
-
+                manager.makeTemp("MeetAndGreetCompleted.txt", 2);
+                manager.rewrite("MeetAndGreetCompleted.txt");
                 JComponent comp = (JComponent) e.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();

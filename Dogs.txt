@@ -1,9 +1,5 @@
 Name, Breed, Size, Kids OK, Dogs OK, Cats OK, Energy Level, Needs Yard, Temperament
 Rosie, Pomeranian, small, false, false, false, high, false, aggressive
-Rocky, Goldendoodle, large, true, true, false, medium, false, regular
 Luna, Husky, medium, true, false, false, high, true, regular
 Smokey, Maltese, small, true, true, true, high, false, regular
 Hela, German Shepard, large, false, true, false, high, true, shy
-Heimdall, German Shepherd, large, true, true, false, medium, true
-regularCheckers, Rat Terrier, small, true, true, false, high, true, regular
-Checkers, Rat Terrier, small, true, true, true, high, true, regular
