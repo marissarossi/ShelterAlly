@@ -4,3 +4,4 @@ Date, Time, Dog Name, Applicant Name
 , , Rocky, Erin
 , , Rocky, Erin
 10/05/2023, 10:30AM, Rocky, Erin
+, , Rocky, Erin
