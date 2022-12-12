@@ -1,4 +1,4 @@
-public class ShyMeetAndGreet extends AbstractMeetAndGreet{
+public class StandardMeetAndGreet extends AbstractMeetAndGreet{
     @Override
     public void consult() {
 
@@ -18,23 +18,5 @@ public class ShyMeetAndGreet extends AbstractMeetAndGreet{
     public void start(){
     }
 
-    @Override
-    public void setConsultTime(int min) {
 
-    }
-
-    @Override
-    public void setMeetTime(int min) {
-
-    }
-
-    @Override
-    public void setPlayTime(int min) {
-
-    }
-
-    @Override
-    public void done() {
-
-    }
 }
