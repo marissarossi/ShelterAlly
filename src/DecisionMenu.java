@@ -19,6 +19,7 @@ public class DecisionMenu extends JFrame{
 
 
     public DecisionMenu() {
+        this.setTitle("Shelter Ally");
 
         approveButton.addMouseListener(new MouseAdapter() {
             @Override

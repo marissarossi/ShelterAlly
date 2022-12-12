@@ -9,6 +9,7 @@ public class NoMatchFound extends JFrame{
     JTextField textField1;
 
     public NoMatchFound() {
+        this.setTitle("Shelter Ally");
         OKButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

@@ -12,6 +12,8 @@ public class SignIn extends JFrame{
     private JPanel accessPanel;
 
     public SignIn() {
+        this.setTitle("Shelter Ally");
+        this.setSize(250, 250);
         submitButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

@@ -61,6 +61,7 @@ public class MeetAndGreetMenu extends JFrame{
     }
 
     public MeetAndGreetMenu(){
+        this.setTitle("Shelter Ally");
         try {
             br = new BufferedReader(new FileReader(file));
             String firstLine = br.readLine().trim();

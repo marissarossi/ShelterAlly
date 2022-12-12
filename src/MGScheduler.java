@@ -21,6 +21,7 @@ public class MGScheduler extends JFrame{
     Application app = new Application();
 
     public MGScheduler() {
+        this.setTitle("Shelter Ally");
         scheduleButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

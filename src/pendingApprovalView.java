@@ -45,6 +45,7 @@ public class pendingApprovalView extends JFrame {
 
 
     public pendingApprovalView() {
+        this.setTitle("Shelter Ally");
         try {
             br = new BufferedReader(new FileReader(file));
             String firstLine = br.readLine().trim();

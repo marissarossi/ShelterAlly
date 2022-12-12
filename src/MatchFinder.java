@@ -13,6 +13,7 @@ public class MatchFinder extends JFrame {
     Application app = new Application();
 
     public MatchFinder(){
+        this.setTitle("Shelter Ally");
 
         scheduleMeetAndGreetButton.addMouseListener(new MouseAdapter() {
             @Override
